@@ -45,7 +45,7 @@ export default function Footer() { // Defining the main functional component nam
     return (
         <footer id='footer'> {/* Main footer container with padding and background color */}
             {
-                loading ? <Loading /> :
+                loading || !data?.footer ? <Loading /> :
                     <>
                         <Link scroll={true} href={`https://wa.me/${whatsapp}?text=Good%20Morning%20Ataa`} target="_blank" className="fixed-what">
                             <i className="fa-brands fa-whatsapp"></i>
@@ -91,7 +91,7 @@ export default function Footer() { // Defining the main functional component nam
                                 <Link scroll={true} href={"/terms"}>الشروط والاحكام</Link>
                                 {data.footer.isocial?<div className="social-links-global">
                                     {
-                                        data.socialData.map((item, index) => (
+                                        data.socialData?.map((item, index) => (
                                             <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
                                         ))
                                     }

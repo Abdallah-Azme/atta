@@ -22,11 +22,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Ataa",
       description: "عطاء انترناشيونال..... عطاء يمتد",
-      url: 'https://www.alataa-int.com/',
+      url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.alataa-int.com/',
       siteName: "Ataa",
       images: [
         {
-      url: 'https://www.alataa-int.com/_next/image?url=https%3A%2F%2Falataa-panel.alataa-int.com%2Fstorage%2Fuploads%2Fimages%2F01JSKWW8SGCD3FYV4JJG4VF5T2.jpeg&w=256&q=75', // this does not apear in the preview while sharing the page
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.alataa-int.com'}/_next/image?url=https%3A%2F%2Falataa-panel.alataa-int.com%2Fstorage%2Fuploads%2Fimages%2F01JSKWW8SGCD3FYV4JJG4VF5T2.jpeg&w=256&q=75`, // this does not apear in the preview while sharing the page
       width: 1200,
       height: 630,
       alt: 'Horizon',

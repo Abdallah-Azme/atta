@@ -12,7 +12,7 @@ import Loading from '@/app/loading';
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Maneger() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         setLoading(true)
@@ -32,14 +32,14 @@ export default function Maneger() {
 
     return (
         <>
-            {loading ? <Loading /> :
+            {loading || !data?.footer ? <Loading /> :
                 <>
                     {
                         data ? <HeaderMarquee data={data} /> : null
                     }
                     <main className='flex flex-col md:gap-36 gap-14'>
                         <Hero />
-                        {data.footer.isAbou ? <HomeAbout /> : null}
+                        {data.footer.isAbout ? <HomeAbout /> : null}
                         {data.footer.isVision ? <HomeVision /> : null}
                         {data.footer.isMessage ? <HomeMessage /> : null}
                         {data.footer.isValue ? <HomeValues /> : null}

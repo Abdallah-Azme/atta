@@ -1,6 +1,20 @@
 // next.config.js
 module.exports = {
     images: {
-      domains: ['voluntary.subcodeco.com','alataa-panel.alataa-int.com'], // Add your external domain here
+      unoptimized: true,
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'voluntary.subcodeco.com',
+        },
+        {
+          protocol: 'https',
+          hostname: 'alataa-panel.alataa-int.com',
+        },
+        {
+          protocol: 'https',
+          hostname: 'ataa.subcodeco.com',
+        },
+      ],
     },
   };

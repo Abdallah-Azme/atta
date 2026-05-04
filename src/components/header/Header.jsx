@@ -37,7 +37,7 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [searchData, setSearchData] = useState([]);
 
@@ -83,7 +83,7 @@ export default function Header() {
   return (
     <>
       {
-        loading ? <Loading /> :
+        loading || !data?.footer ? <Loading /> :
           <header className={`header ${isFixed ? 'fixed-header' : ''} `}>
             <div className="X-overlay hidden" onClick={handleClose}></div>
             <div className="container m-auto flex items-center gap-2 justify-between relative  bg-white">

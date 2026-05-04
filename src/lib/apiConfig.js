@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://alataa-panel.alataa-int.com/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://alataa-panel.alataa-int.com/api';
 
 const API_ENDPOINTS = {
   REGISTER: '/auth/register',

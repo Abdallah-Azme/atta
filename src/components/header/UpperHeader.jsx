@@ -7,7 +7,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Header() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Header() {
     return (
         <div className="uperHeader">
             {
-                loading ? null :
+                loading || !data?.footer ? null :
                     <div className="container m-auto">
                         <div className="uper-header-cont">
                             <div className="r-side">
@@ -46,10 +46,9 @@ export default function Header() {
                             </div>
                             {data.footer.isocial ? <div className="social-links-global">
                                 {
-                                    loading ? null :
-                                        data.socialData.map((item, index) => (
-                                            <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
-                                        ))
+                                    data.socialData?.map((item, index) => (
+                                        <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
+                                    ))
                                 }
                             </div> : null}
                         </div>
